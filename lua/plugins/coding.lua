@@ -10,8 +10,6 @@ return {
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
-      f = require("cmp_nvim_lsp")
-      f = require("cmp_buffer")
       opts.completion.completeopt = "menu,menuone,noinsert"
       opts.mapping["<Tab>"] = cmp.mapping.confirm({ select = true })
       opts.mapping["<CR>"] = function(fallback)
