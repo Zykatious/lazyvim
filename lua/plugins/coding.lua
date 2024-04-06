@@ -50,6 +50,13 @@ return {
               client.server_capabilities.documentFormattingProvider = false
             elseif client.name == "tsserver" then
               client.server_capabilities.documentFormattingProvider = false
+              require("lspconfig").tsserver.setup({
+                init_options = {
+                  preferences = {
+                    disableSuggestions = true,
+                  },
+                },
+              })
             end
           end)
         end,

@@ -17,7 +17,7 @@ return {
   },
   opts = {
     window = {
-      width = 30,
+      width = 35,
     },
   },
 }
