@@ -42,7 +42,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      servers = { eslint = {} },
+      servers = { tsserver = {}, eslint = {} },
       setup = {
         eslint = function()
           require("lazyvim.util").lsp.on_attach(function(client)
@@ -50,15 +50,15 @@ return {
               client.server_capabilities.documentFormattingProvider = false
             elseif client.name == "tsserver" then
               client.server_capabilities.documentFormattingProvider = false
-              require("lspconfig").tsserver.setup({
-                init_options = {
-                  preferences = {
-                    disableSuggestions = true,
-                  },
-                },
-              })
             end
           end)
+          require("lspconfig").tsserver.setup({
+            init_options = {
+              preferences = {
+                disableSuggestions = true,
+              },
+            },
+          })
         end,
       },
     },
